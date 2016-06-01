@@ -2,13 +2,15 @@
 
 // Register `phoneDetail` component, along with its associated controller and template
 angular.
-  module('phoneDetail').
-  component('phoneDetail', {
-    templateUrl: 'phone-detail/phone-detail.template.html',
-    controller: ['$routeParams', 'Phone',
-      function PhoneDetailController($routeParams, Phone) {
+  module('navigation').
+  component('navigation', {
+    templateUrl: 'navigation/navigation.template.html',
+    controller: ['$routeParams', 'navigation',
+      function NavigationController($routeParams, Navigation) {
         var self = this;
-        self.phone = Phone.get({phoneId: $routeParams.phoneId}, function(phone) {
+        self.nav = Navigation.get({
+          // Start Here!
+          phoneId: $routeParams.phoneId}, function(phone) {
           self.setImage(phone.images[0]);
         });
 
